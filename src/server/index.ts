@@ -24,8 +24,10 @@ if (env.error) {
 
 const LocalStrategy = passportLocal.Strategy;
 
+const URI = process.env.MONGODB_URI;
+
 mongoose.connect(
-  process.env.DB_AUTH!,
+  URI!,
   {
     // arbitrary options to avoid an error
     useCreateIndex: true,
