@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist",
+    "noEmit": false,
+    "sourceMap": true,
+    "module": "es6",
+    "strict": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "jsx": "react"
+  },
+  "exclude": ["../../build", "../client"],
+  "include": ["."]
+}

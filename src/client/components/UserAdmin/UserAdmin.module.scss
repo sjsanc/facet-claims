@@ -1,0 +1,125 @@
+@import "../../styles/colours.scss";
+@import "../../styles/global.scss";
+
+.wrapper {
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-content: center;
+  width: 100%;
+  grid-gap: 30px;
+
+  > div {
+    background: $white1;
+    height: 600px;
+    width: 95%;
+    border-radius: 5px;
+    border: 1px solid $grey2;
+    padding: 10px;
+  }
+}
+
+.userSearchPanel {
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    label {
+      @include ubuntu;
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: $grey1;
+      padding: 0 4px 0 10px;
+    }
+    input[type="checkbox"] {
+      outline: 1px solid $grey1;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  h1 {
+    @include ubuntu;
+    color: $dark3;
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.search {
+  border: 1px solid $grey1;
+  margin-top: 8px;
+  border-radius: 4px;
+  height: 25px;
+  padding-left: 5px;
+
+  &:focus::placeholder {
+    color: white;
+  }
+
+  &:focus {
+    border: 1px solid $gold1;
+    box-shadow: 0 0 0px 2px $gold3;
+  }
+}
+
+.user {
+  width: 95%;
+  height: 30px;
+  border-radius: 4px;
+  background: $white2;
+  margin: 3px auto;
+  border: 1px solid $grey1;
+  padding: 0 6px;
+  @include ubuntu;
+  color: $dark3;
+
+  &:hover {
+    box-shadow: 0 0 0 2px $grey3;
+    cursor: pointer;
+  }
+
+  div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  div > span {
+    font-size: 0.7rem;
+    border-radius: 3px;
+    padding: 3px;
+    text-align: center;
+    margin: 0 2px;
+  }
+
+  p > span {
+    color: $grey1;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.8rem;
+  }
+}
+
+.inactive {
+  border: 1px dashed $grey1;
+}
+
+.adminTag {
+  border: 1px solid $yellow3;
+  background: $yellow6;
+  color: $yellow3;
+}
+.extTag {
+  border: 1px solid $blue5;
+  background: $blue6;
+  color: $blue3;
+}

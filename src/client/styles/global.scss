@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,700&display=swap);
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin ubuntu {
+  font-family: "Ubuntu", sans-serif;
+}

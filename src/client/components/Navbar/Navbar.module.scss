@@ -1,0 +1,238 @@
+@import "../../styles/colours.scss";
+@import "../../styles/global.scss";
+
+.wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50px;
+  background: $dark1;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  a {
+    height: 100%;
+  }
+}
+
+.brand {
+  height: 100%;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid $dark2;
+
+  img {
+    height: 35px;
+  }
+
+  &:hover {
+    background: $dark2;
+  }
+}
+
+.searchbar {
+  min-width: 1000px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  border: 2px solid $dark1;
+  border-radius: 7px;
+  position: relative;
+
+  &:focus-within {
+    border: 2px solid $gold1;
+    // box-shadow: 0 0 0px 2px $gold2;
+  }
+
+  select {
+    height: 100%;
+    border: 0;
+    background: $dark3;
+    border-radius: 5px 0 0 5px;
+    appearance: none; // remove dropdown
+    color: $white1;
+    font-family: "Ubuntu", sans-serif;
+    width: 70px;
+    padding-left: 5px;
+    cursor: pointer;
+  }
+
+  .prefixSelect {
+    position: absolute;
+    left: 39px;
+    color: $grey1;
+    pointer-events: none;
+  }
+
+  input {
+    width: 90%;
+    height: 100%;
+    border: 0;
+    padding: 0 0 0 10px;
+  }
+
+  button {
+    height: 100%;
+    width: 50px;
+    background: $dark2;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    border-radius: 0 5px 5px 0;
+    color: $grey1;
+    @include flex-center;
+
+    &:hover {
+      color: $gold1;
+      background-color: $dark3;
+      cursor: pointer;
+    }
+  }
+}
+
+.signin {
+  position: absolute;
+  right: 0;
+  width: 100px;
+  color: white;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+  @include flex-center;
+  border-left: 1px solid $dark2;
+
+  h3 {
+    padding: 0 10px;
+    margin: 0;
+    font-size: 1rem;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: normal;
+  }
+
+  &:hover {
+    background: $dark3;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.profile {
+  position: absolute;
+  right: 0;
+  height: 100%;
+
+  > div:nth-of-type(2) {
+    position: absolute;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    color: $white2;
+    @include flex-center;
+
+    &:hover {
+      background: $dark3;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  > div:first-of-type {
+    color: $white2;
+    position: absolute;
+    right: 60px;
+    height: 100%;
+    font-family: "Ubuntu", sans-serif;
+    @include flex-center;
+    flex-direction: column;
+
+    a {
+      color: white;
+      text-decoration: none;
+      height: 23px;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+      font-size: 0.8rem;
+    }
+
+    h2 {
+      padding: 0;
+      margin: 0;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.profileDropdown {
+  position: absolute;
+  right: -130px;
+  top: 50px;
+  // height: 100px;
+  width: 130px;
+  background: $dark3;
+  transition: 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+
+  div {
+    margin: 0;
+    font-family: "Ubuntu", sans-serif;
+    color: $white1;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+
+    a {
+      color: $white1;
+      text-decoration: none;
+      height: 30px;
+      width: 100%;
+      @include flex-center;
+    }
+
+    &:hover {
+      background: $dark2;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+    }
+  }
+}
+
+.links {
+  height: 50px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: $white1;
+    font-family: "Ubuntu", sans-serif;
+    display: block;
+    padding: 0 10px;
+    @include flex-center;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      background: $dark3;
+      transition: 0.2s ease-in-out;
+    }
+  }
+}
+
+.expanded {
+  transform: translateX(-130px);
+  transition: 0.2s ease-in-out;
+}
