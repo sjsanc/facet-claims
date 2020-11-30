@@ -22,13 +22,10 @@ if (env.error) {
   console.log("Environment loaded");
 }
 
-const URL = process.env.URL;
-const DB_AUTH = `${process.env.STRING1}${process.env.USER}:${process.env.PASSWORD}${process.env.STRING2}`;
-
 const LocalStrategy = passportLocal.Strategy;
 
 mongoose.connect(
-  DB_AUTH,
+  process.env.DB_AUTH!,
   {
     // arbitrary options to avoid an error
     useCreateIndex: true,
@@ -44,7 +41,7 @@ mongoose.connect(
 // Middleware
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: URL, credentials: true }));
+app.use(cors({ origin: process.env.URL, credentials: true }));
 app.use(
   session({ secret: "secretcode", resave: true, saveUninitialized: true })
 );
@@ -83,6 +80,7 @@ app.get("/", function (req, res) {
   console.log(req.session);
 });
 
-app.listen(3001, () => {
-  console.log("Server started successfully");
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server started successfully on port ${PORT}`);
 });

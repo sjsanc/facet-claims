@@ -1,6 +1,9 @@
 {
   "name": "facet",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.x"
+  },
   "private": true,
   "proxy": "http://localhost:3001",
   "main": "server.js",
