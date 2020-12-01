@@ -4,6 +4,7 @@ import "./styles/global.scss";
 import { context } from "./context/Context";
 
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 // Page imports
 import Home from "./pages/Home/Home";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/profile" component={Profile}></Route>
         <Route path="/admin" component={Admin}></Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

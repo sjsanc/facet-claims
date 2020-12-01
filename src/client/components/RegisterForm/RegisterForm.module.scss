@@ -1,0 +1,59 @@
+@import "../../styles/colours.scss";
+@import "../../styles/global.scss";
+
+.wrapper {
+  @include flex-center;
+  @include ubuntu;
+  flex-direction: column;
+
+  input {
+    @include input;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  input:last-of-type {
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 0.8rem;
+    color: red;
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+
+  > div:first-of-type {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+}
+
+.checks {
+  @include flex-sb;
+  height: 25px;
+  font-size: 0.9rem;
+
+  div {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    margin: 0 15px;
+  }
+}
+
+.submit {
+  background: $grey3;
+  border: 1px solid $white1;
+}
+
+.error {
+  border: 1px solid red !important;
+}
+
+.disabled {
+  color: $grey1;
+}

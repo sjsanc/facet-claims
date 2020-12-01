@@ -25,7 +25,6 @@
       padding: 0 10px;
       height: 100%;
       @include flex-center;
-      border-bottom: 1px solid $grey1;
       transition: 0.2s ease-in-out;
 
       &:hover {

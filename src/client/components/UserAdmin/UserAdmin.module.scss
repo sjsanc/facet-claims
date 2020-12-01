@@ -1,51 +1,54 @@
 @import "../../styles/colours.scss";
 @import "../../styles/global.scss";
 
+@mixin panel {
+  background: $white1;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid $grey2;
+  padding: 10px;
+}
+
 .wrapper {
-  margin-top: 90px;
-  margin-left: auto;
-  margin-right: auto;
+  @include ubuntu;
+  margin: 90px 15px 0 15px;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   justify-content: center;
-  width: 100%;
-  grid-gap: 30px;
-
-  > div {
-    background: $white1;
-    height: 600px;
-    width: 95%;
-    border-radius: 5px;
-    border: 1px solid $grey2;
-    padding: 10px;
-  }
+  grid-gap: 15px;
 }
 
 .userSearchPanel {
+  @include panel;
   display: flex;
   flex-direction: column;
 
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  > div:first-of-type {
+    @include flex-sb;
+    height: 26px;
 
     label {
-      @include ubuntu;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       font-weight: normal;
       color: $grey1;
-      padding: 0 4px 0 10px;
+      padding: 2px 6px;
+      margin: 0 6px;
+      background: $grey3;
+      border-radius: 3px;
     }
     input[type="checkbox"] {
-      outline: 1px solid $grey1;
+      outline: 0px solid $grey1;
       padding: 0;
       margin: 0;
+
+      &:focus {
+        outline: 1px solid $gold1;
+        box-shadow: 0 0 0 2px $gold3;
+      }
     }
   }
 
   h1 {
-    @include ubuntu;
     color: $dark3;
     font-size: 1.1rem;
     font-weight: normal;
@@ -55,20 +58,8 @@
 }
 
 .search {
-  border: 1px solid $grey1;
   margin-top: 8px;
-  border-radius: 4px;
-  height: 25px;
-  padding-left: 5px;
-
-  &:focus::placeholder {
-    color: white;
-  }
-
-  &:focus {
-    border: 1px solid $gold1;
-    box-shadow: 0 0 0px 2px $gold3;
-  }
+  @include input;
 }
 
 .user {
@@ -81,6 +72,7 @@
   padding: 0 6px;
   @include ubuntu;
   color: $dark3;
+  @include flex-sb;
 
   &:hover {
     box-shadow: 0 0 0 2px $grey3;
@@ -94,11 +86,7 @@
   }
 
   div > span {
-    font-size: 0.7rem;
-    border-radius: 3px;
-    padding: 3px;
-    text-align: center;
-    margin: 0 2px;
+    @include userTag;
   }
 
   p > span {
@@ -122,4 +110,87 @@
   border: 1px solid $blue5;
   background: $blue6;
   color: $blue3;
+}
+
+.userDisplayPanel {
+  @include ubuntu;
+  @include panel;
+}
+
+.displayHeader {
+  > div:first-of-type {
+    // header
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    padding: 0 10px;
+    height: 60px;
+    background: $grey3;
+    border-radius: 4px;
+
+    h3,
+    h4 {
+      margin: 0;
+      padding: 0;
+    }
+
+    h4 {
+      font-weight: normal;
+    }
+
+    h3 span {
+      font-weight: normal;
+      font-size: 1rem;
+      color: $dark3;
+    }
+
+    span {
+      @include userTag;
+      margin: 2px 0;
+    }
+
+    div:nth-of-type(2) {
+      color: $grey1;
+      font-size: 0.8rem;
+      font-weight: normal;
+      font-style: italic;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 100px;
+    }
+
+    div:nth-of-type(3) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      height: 50px;
+    }
+  }
+}
+.noUser {
+  text-align: center;
+  color: $grey1;
+}
+
+.splitPanel {
+  display: grid;
+  grid-template-rows: 300px 300px;
+  grid-gap: 15px;
+
+  > div {
+    @include panel;
+  }
+
+  h1 {
+    color: $dark3;
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+    padding: 0;
+  }
 }
