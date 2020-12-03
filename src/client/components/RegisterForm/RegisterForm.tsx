@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, FieldError } from "react-hook-form";
 import axios, { AxiosResponse } from "axios";
 import style from "./RegisterForm.module.scss";
@@ -16,6 +16,7 @@ interface UserForm {
 export default function RegisterForm() {
   const [admin, setAdmin] = useState<boolean>();
   const [ext, setExt] = useState<boolean>();
+  const [username, setUsername] = useState<string>();
 
   const { register, handleSubmit, watch, errors } = useForm<UserForm>();
   const onSubmit = (data: UserForm, e) => {
@@ -55,6 +56,7 @@ export default function RegisterForm() {
         ref={register({ required: true, maxLength: 22 })}
         placeholder="Username"
         className={errors.username ? style.error : undefined}
+        value={username}
       />
       <input
         name="password"
@@ -95,6 +97,7 @@ export default function RegisterForm() {
           />
         </div>
       </div>
+      {/* Gather dynamic userstats and stick em here */}
       <input className={style.submit} type="submit" value="Register" />
     </form>
   );

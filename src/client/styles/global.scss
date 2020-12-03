@@ -1,5 +1,32 @@
 @import url(https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,700&display=swap);
 
+// TRUE GLOBL
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+// GENERIC
+@mixin ubuntu {
+  font-family: "Ubuntu", sans-serif;
+}
+@mixin center-absolute {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100px;
+}
+
+// FLEX MIXINS
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -12,10 +39,7 @@
   justify-content: space-between;
 }
 
-@mixin ubuntu {
-  font-family: "Ubuntu", sans-serif;
-}
-
+// REUSABLE UI
 @mixin input {
   border: 1px solid $grey1;
   border-radius: 4px;
@@ -31,31 +55,10 @@
   }
 }
 
-@mixin userTag {
-  font-size: 0.7rem;
-  border-radius: 3px;
-  padding: 3px;
-  text-align: center;
-  margin: 0 2px;
-}
-
-@mixin center-absolute {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 100px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-#root {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  overflow: hidden;
+@mixin panel {
+  background: $white1;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid $grey2;
+  padding: 10px;
 }

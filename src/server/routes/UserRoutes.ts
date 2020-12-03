@@ -50,3 +50,9 @@ router.get("/getcurrentuser", (req, res) => {
   if (req.user === undefined) console.error("No user logged in");
   else res.send(req.user);
 });
+
+router.get("/userstats", async (req, res) => {
+  const total = await UserModel.estimatedDocumentCount();
+  console.log(total);
+  res.sendStatus(200);
+});

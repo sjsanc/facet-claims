@@ -3,7 +3,10 @@ import style from "./UserAdmin.module.scss";
 import axios, { AxiosResponse } from "axios";
 import { User } from "src/server/models/User.model";
 
+import Tag from "../../components/Tag/Tag";
+
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import UserDisplay from "../../components/UserDisplay/UserDisplay";
 
 export default function UserAdmin() {
   const [userList, setUserlist] = useState<User[]>([]);
@@ -101,18 +104,15 @@ export default function UserAdmin() {
                   {x.isActive === false ? <span>inactive</span> : null}
                 </p>
                 <div>
-                  {x.isAdmin ? (
-                    <span className={style.adminTag}>admin</span>
-                  ) : null}
-                  {x.isExternal ? (
-                    <span className={style.extTag}>external</span>
-                  ) : null}
+                  {x.isAdmin ? <Tag msg="admin" /> : null}
+                  {x.isExternal ? <Tag msg="external" /> : null}
                 </div>
               </div>
             ))
           : null}
       </div>
-      <div className={style.userDisplayPanel}>
+      <UserDisplay user={selectedUser} />
+      {/* <div className={style.userDisplayPanel}>
         {selectedUser ? (
           <>
             <div className={style.displayHeader}>
@@ -130,12 +130,8 @@ export default function UserAdmin() {
                 </div>
 
                 <div>
-                  {selectedUser.isAdmin ? (
-                    <span className={style.adminTag}>admin</span>
-                  ) : null}
-                  {selectedUser.isExternal ? (
-                    <span className={style.extTag}>external</span>
-                  ) : null}
+                  {selectedUser.isAdmin ? <Tag msg="admin" /> : null}
+                  {selectedUser.isExternal ? <Tag msg="external" /> : null}
                 </div>
               </div>
             </div>
@@ -144,7 +140,7 @@ export default function UserAdmin() {
         ) : (
           <p className={style.noUser}>No user selected</p>
         )}
-      </div>
+      </div> */}
       <div className={style.splitPanel}>
         <div>
           <h1>Register a new user</h1>
