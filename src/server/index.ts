@@ -7,7 +7,6 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
-import path from "path";
 
 // Models
 import { UserModel, User } from "./models/User.model";
@@ -43,7 +42,6 @@ mongoose.connect(
 
 // Middleware
 const app = express();
-app.use(express.static(path.join(__dirname, "build")));
 app.use(express.json());
 app.use(cors({ origin: process.env.URL, credentials: true }));
 app.use(
@@ -80,8 +78,8 @@ passport.deserializeUser((_id: string, done) => {
   });
 });
 
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+app.get("/", function (req, res) {
+  console.log(req.session);
 });
 
 const PORT = process.env.PORT || 3001;
