@@ -43,7 +43,7 @@ mongoose.connect(
 // Middleware
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: process.env.URL, credentials: true }));
+app.use(cors({ origin: false, credentials: true }));
 app.use(
   session({ secret: "secretcode", resave: true, saveUninitialized: true })
 );
