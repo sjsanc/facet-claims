@@ -2,7 +2,7 @@
   "name": "facet",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "0.0.0.0:3001",
   "main": "server.js",
   "dependencies": {
     "@material-ui/core": "^4.11.1",
